@@ -12,10 +12,11 @@ class ConversationsColumn extends StatelessWidget {
         children: List.generate(
           conversations.length,
           (index) => InkWell(
-            onTap: (){},
+            onTap: () {},
             child: ListTile(
+              contentPadding: const EdgeInsets.only(left: 10),
               leading: CircleAvatar(
-                radius: 25,
+                radius: 30,
                 backgroundImage: NetworkImage(conversations[index]["imageUrl"]),
               ),
               title: Text(
@@ -26,14 +27,17 @@ class ConversationsColumn extends StatelessWidget {
                       : FontWeight.bold,
                 ),
               ),
-              subtitle: Text(conversations[index]["message"],
+              subtitle: Text(
+                conversations[index]["message"],
                 style: TextStyle(
                   fontWeight: conversations[index]["isRead"]
                       ? FontWeight.normal
                       : FontWeight.bold,
                 ),
               ),
-              trailing: Text(conversations[index]["time"], style: TextStyle(
+              trailing: Text(
+                conversations[index]["time"],
+                style: TextStyle(
                   fontWeight: conversations[index]["isRead"]
                       ? FontWeight.normal
                       : FontWeight.bold,
